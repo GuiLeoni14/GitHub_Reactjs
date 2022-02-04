@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import Container from '../../layout/Container';
-import AllRepositoryProvider from '../../context/RepoProvider';
+import AllRepositoryProvider from '../../context/RepositoryProvider';
 import './styles.scss';
 import CardsRepository from './CardsRepository';
 export default function Home() {

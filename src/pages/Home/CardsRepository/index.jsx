@@ -1,18 +1,22 @@
 import P from 'prop-types';
 import './styles.scss';
-import { memo, useContext, useEffect } from 'react';
-import python_icon from '../../../assets/img/icon-python.svg';
-import RepoProvider from '../../../context/RepoProvider';
-import { AllRepositoryContext } from '../../../context/RepoProvider/context';
-import { loadAllRepository } from '../../../context/RepoProvider/action';
+import { memo, useContext, useEffect, useRef } from 'react';
+import { AllRepositoryContext } from '../../../context/RepositoryProvider/context';
+import { loadAllRepository } from '../../../context/RepositoryProvider/action';
 import Card from '../../../components/Card';
 function CardsRepository() {
+    const componentIsMounted = useRef(true);
     const theContext = useContext(AllRepositoryContext);
     const { stateAllRepository, allRepositoryDispatch } = theContext;
     useEffect(() => {
         loadAllRepository(allRepositoryDispatch, 'GuiLeoni14').then((dispatch) => {
-            dispatch();
+            if (componentIsMounted.current) {
+                dispatch();
+            }
         });
+        return () => {
+            componentIsMounted.current = false;
+        };
     }, [allRepositoryDispatch]);
     console.log(theContext);
     return (

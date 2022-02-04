@@ -1,9 +1,10 @@
+@import '../../layout/GlobalStyles/_variables.scss';
 .card{
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    background-color: #fff;
+    background-color: $white;
     border-radius: 0.5rem;
     width: 30rem;
     margin-top: 4rem;
@@ -26,9 +27,30 @@
             background-color: #fff;
             box-shadow: 0rem 0rem 2rem #ccc;
             margin-top: -6rem;
+            transition: all .3s;
+            cursor: pointer;
             img{
                 height: 10rem;
                 width: 10rem;
+            }
+            &:hover{
+                box-shadow: 0rem 0rem 2rem #111;
+                transform: scale(1.1);
+                &.python{
+                    background-color: $blue;
+                }
+                &.javascript{
+                    background-color: $yellow;
+                }
+                &.html{
+                    background-color: $orange;
+                }
+                &.css{
+                    background-color: $purple;
+                }
+                &.java{
+                    background-color: $blue;
+                }
             }
         }
         h4{
