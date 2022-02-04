@@ -1,10 +1,9 @@
-@import '../../../layout/GlobalStyles/variables';
 .card{
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    background-color: $white;
+    background-color: #fff;
     border-radius: 0.5rem;
     width: 30rem;
     margin-top: 4rem;
